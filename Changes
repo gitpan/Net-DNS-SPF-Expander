@@ -1,5 +1,8 @@
 Revision history for Net-DNS-SPF-Expander
 
+0.007     2013-07-30
+    - Fix Changes file. neilbowers
+
 0.006     2013-07-29
     - Make sure we can run the script on
       the same zonefile again without
@@ -10,7 +13,7 @@ Revision history for Net-DNS-SPF-Expander
       it returns the string that will be
       written out.
 
-0.005
+0.005 2013-07-28
     - Make sure that our split spf records
       contain the protocol, v=spf1.
 

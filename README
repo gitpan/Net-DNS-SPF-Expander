@@ -276,7 +276,10 @@ PRIVATE METHODS
     original.
 
 AUTHOR
-    Amiri Barksdale, <amiri@campusexplorer.com>
+    Amiri Barksdale <amiri@campusexplorer.com>
+
+  CONTRIBUTORS
+    Neil Bowers <neil@bowers.com>
 
 COPYRIGHT
     Copyright (c) 2013 the Net::DNS::SPF::Expander "AUTHOR" listed above.
