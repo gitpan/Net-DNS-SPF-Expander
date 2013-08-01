@@ -58,7 +58,7 @@ SYNOPSIS
 
         {
             package MyDNSExpander;
-        
+
             use Net::DNS::SPF::Expander;
 
             my $input_file = '/home/me/project/etc/zone.db';
@@ -83,6 +83,9 @@ CONFIGURABLE ATTRIBUTES
   backup_file
     The path and name of the backup file. By default, we tack ".bak" onto
     the end of the original filename.
+
+  nameservers
+    A list of nameservers that will be passed to the resolver.
 
   parsed_file
     The Net::DNS::Zonefile object created from the input_file.
@@ -151,6 +154,8 @@ PRIVATE ATTRIBUTES
             "v=spf1"             => undef
           }
 
+    They are alpha sorted in the final results for predictability in tests.
+
   _lengths_of_expansions
     We need to know how long the expanded record would be, because SPF
     records should be less than 256 bytes. If the expanded record would be
@@ -161,7 +166,8 @@ PRIVATE ATTRIBUTES
 
 BUILDERS
   _build_resolver
-    Return a Net::DNS::Resolver.
+    Return a Net::DNS::Resolver. Any nameservers will be passed through to
+    the resolver.
 
   _build_origin
     Extract the origin from parsed_file.
@@ -202,7 +208,7 @@ PUBLIC METHODS
 
   new_spf_records
     In case you want to see how your records were expanded, this returns the
-    hashref used to create the new records.
+    hashref of Net::DNS::RR objects used to create the new records.
 
 PRIVATE METHODS
   _normalize_component
