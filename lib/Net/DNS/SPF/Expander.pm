@@ -1,4 +1,7 @@
 package Net::DNS::SPF::Expander;
+{
+  $Net::DNS::SPF::Expander::VERSION = '0.010_02';
+}
 
 use Moose;
 use namespace::autoclean;
