@@ -1,6 +1,6 @@
 Revision history for Net-DNS-SPF-Expander
 
-0.010     2013-08-02
+0.010     2013-08-06
     - Another sorting fix for single records and
       test failures on 5.18.
 
