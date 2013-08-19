@@ -25,13 +25,11 @@ my %WriteMakefileArgs = (
     "IO::All" => 0,
     "List::AllUtils" => 0,
     "Moose" => 0,
-    "MooseX::AttributeShortcuts" => 0,
     "MooseX::Getopt" => 0,
-    "MooseX::Types::Path::Class" => 0,
+    "MooseX::Types::IO::All" => 0,
     "Net::DNS::Resolver" => 0,
     "Net::DNS::ZoneFile" => 0,
     "Scalar::Util" => 0,
-    "namespace::autoclean" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -41,7 +39,7 @@ my %WriteMakefileArgs = (
     "Test::More" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.010_02",
+  "VERSION" => "0.011",
   "test" => {
     "TESTS" => "t/*.t"
   }

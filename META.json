@@ -4,7 +4,7 @@
       "Amiri Barksdale <amiri@campusexplorer.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -24,13 +24,11 @@
             "IO::All" : "0",
             "List::AllUtils" : "0",
             "Moose" : "0",
-            "MooseX::AttributeShortcuts" : "0",
             "MooseX::Getopt" : "0",
-            "MooseX::Types::Path::Class" : "0",
+            "MooseX::Types::IO::All" : "0",
             "Net::DNS::Resolver" : "0",
             "Net::DNS::ZoneFile" : "0",
             "Scalar::Util" : "0",
-            "namespace::autoclean" : "0",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -44,7 +42,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/amiri/Net-DNS-SPF-Expander/issues"
@@ -55,6 +53,6 @@
          "web" : "http://github.com/amiri/Net-DNS-SPF-Expander"
       }
    },
-   "version" : "0.010_02"
+   "version" : "0.011"
 }
 

@@ -115,6 +115,9 @@ CONFIGURABLE ATTRIBUTES
     it if you like.
 
 PRIVATE ATTRIBUTES
+  _input_file
+    The IO::All object created from the input_file.
+
   _resource_records
     An arrayref of all the Net::DNS::RR resource records found in the entire
     parsed_file.
@@ -166,7 +169,26 @@ BUILDERS
     Return a Net::DNS::Resolver. Any nameservers will be passed through to
     the resolver.
 
+  _build_origin
+    Extract the origin from parsed_file.
+
   _build_expansions
+  _build_backup_file
+    Tack a ".bak" onto the end of the input_file.
+
+  _build__input_file
+    Turn the string input_file into a filehandle with IO::All.
+
+  _build_output_file
+    Tack a ".new" onto the end of the input_file.
+
+  _build_parsed_file
+    Turn the IO::All filehandle into a Net::DNS::Zonefile object, so that we
+    can extract the SPF records.
+
+  _build_resource_records
+    Extract all the resource records from the Net::DNS::Zonefile.
+
   _build__spf_records
     Grep through the _resource_records to find the SPF records. They can be
     both "TXT" and "SPF" records, so we search for the protocol string,
@@ -263,10 +285,10 @@ AUTHOR
     Amiri Barksdale <amiri@campusexplorer.com>
 
   CONTRIBUTORS
-    Neil Bowers <neil@bowers.com>
+    Neil Bowers <neil@bowers.com> Chris Weyl <cweyl@campusexplorer.com>
 
 COPYRIGHT
-    Copyright (c) 2013 the Net::DNS::SPF::Expander "AUTHOR" listed above.
+    Copyright (c) 2013 Campus Explorer, Inc.
 
 LICENSE
     This library is free software; you can redistribute it and/or modify it

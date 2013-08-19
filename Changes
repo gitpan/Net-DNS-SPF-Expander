@@ -1,6 +1,11 @@
 Revision history for Net-DNS-SPF-Expander
 
-0.010_02  2013-08-07
+0.011     2013-08-19
+    - Add PkgVersion Dist::Zilla plugin.
+      Chris Weyl (https://github.com/RsrchBoy)
+    - Give Campus Explorer, Inc., copyright.
+
+0.010
     - Another sorting fix for single records and
       test failures on 5.18.
 
