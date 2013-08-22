@@ -274,7 +274,7 @@ PRIVATE METHODS
     Create our "master" SPF records that include the split _spf records
     created in _get_multiple_record_strings, e.g.,
 
-        *   600     IN      TXT     "v=spf1 _spf1.test_zone.com _spf2.test_zone.com ~all"
+        *    600    IN    TXT    "v=spf1 _spf1.test_zone.com _spf2.test_zone.com ~all"
 
   _new_records_lines
     Assemble the new DNS zonefile from the lines of the original, comment
@@ -285,7 +285,9 @@ AUTHOR
     Amiri Barksdale <amiri@campusexplorer.com>
 
   CONTRIBUTORS
-    Neil Bowers <neil@bowers.com> Chris Weyl <cweyl@campusexplorer.com>
+    Neil Bowers <neil@bowers.com>
+
+    Chris Weyl <cweyl@campusexplorer.com>
 
 COPYRIGHT
     Copyright (c) 2013 Campus Explorer, Inc.

@@ -35,6 +35,7 @@
       },
       "test" : {
          "requires" : {
+            "Data::Printer" : "0",
             "Test::Differences" : "0",
             "Test::Exception" : "0",
             "Test::More" : "0",
@@ -53,6 +54,6 @@
          "web" : "http://github.com/amiri/Net-DNS-SPF-Expander"
       }
    },
-   "version" : "0.011"
+   "version" : "0.012"
 }
 

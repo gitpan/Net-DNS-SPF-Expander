@@ -1,6 +1,6 @@
 package Net::DNS::SPF::Expander;
 {
-  $Net::DNS::SPF::Expander::VERSION = '0.011';
+  $Net::DNS::SPF::Expander::VERSION = '0.012';
 }
 
 use Moose;
@@ -217,7 +217,7 @@ has 'maximum_record_length' => (
     is      => 'ro',
     isa     => 'Int',
     default => sub {
-        256 - length('v=spf1 ') + length(' ~all');
+        255 - length('v=spf1 ') - length(' ~all') - length('"') - length('"');
     },
 );
 
@@ -840,8 +840,9 @@ sub _get_single_record_string {
     for my $record (@sorted_record_set) {
         $record->name($domain);
         $record->txtdata( 'v=spf1 ' . $record->txtdata . ' ~all' );
-        push @record_strings,
-            $self->_normalize_record_name( $record->string ) . "\n";
+        my $string = $self->_normalize_record_name( $record->string ) . "\n";
+        $string =~ s/\t/    /g;
+        push @record_strings, $string;
     }
     return \@record_strings;
 }
@@ -909,7 +910,7 @@ sub _get_multiple_record_strings {
         }
     }
 
-    @record_strings = map { $self->_normalize_record_name( $_->string ) . "\n" }
+    @record_strings = map { my $string = $self->_normalize_record_name( $_->string ) . "\n"; $string =~ s/\t/    /g; $string; }
         # We sort first by the string, and then by the type,
         # so that TXT goes first, before SPF.
         sort  { $b->type cmp $a->type }
@@ -924,7 +925,7 @@ sub _get_multiple_record_strings {
 Create our "master" SPF records that include the split _spf records created
 in _get_multiple_record_strings, e.g.,
 
-    *	600	IN	TXT	"v=spf1 _spf1.test_zone.com _spf2.test_zone.com ~all"
+    *    600    IN    TXT    "v=spf1 _spf1.test_zone.com _spf2.test_zone.com ~all"
 
 =cut
 
@@ -952,7 +953,7 @@ sub _get_master_record_strings {
         }
     }
 
-    @record_strings = map { $self->_normalize_record_name( $_->string ) . "\n" }
+    @record_strings = map { my $string = $self->_normalize_record_name( $_->string ) . "\n"; $string =~ s/\t/    /g; $string; }
         # We sort first by the string, and then by the type,
         # so that TXT goes first, before SPF.
         sort  { $b->type cmp $a->type }
@@ -1046,6 +1047,7 @@ Amiri Barksdale E<lt>amiri@campusexplorer.comE<gt>
 =head2 CONTRIBUTORS
 
 Neil Bowers E<lt>neil@bowers.comE<gt>
+
 Chris Weyl E<lt>cweyl@campusexplorer.comE<gt>
 
 =head1 COPYRIGHT

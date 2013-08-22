@@ -34,12 +34,13 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "Data::Printer" => 0,
     "Test::Differences" => 0,
     "Test::Exception" => 0,
     "Test::More" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.011",
+  "VERSION" => "0.012",
   "test" => {
     "TESTS" => "t/*.t"
   }

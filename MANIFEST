@@ -12,6 +12,7 @@ script/dns-spf-expander
 t/etc/test_zonefile
 t/etc/test_zonefile.bak
 t/etc/test_zonefile.new
+t/etc/test_zonefile_complex
 t/etc/test_zonefile_idem
 t/etc/test_zonefile_idem.bak
 t/etc/test_zonefile_idem.new
@@ -21,3 +22,4 @@ t/etc/test_zonefile_single.new
 t/integration-idempotency.t
 t/integration-multi-record.t
 t/integration-single-record.t
+t/record-value-length.t

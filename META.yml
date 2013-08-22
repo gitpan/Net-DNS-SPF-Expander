@@ -3,6 +3,7 @@ abstract: "Expands DNS SPF records, so you don't have to."
 author:
   - 'Amiri Barksdale <amiri@campusexplorer.com>'
 build_requires:
+  Data::Printer: 0
   Test::Differences: 0
   Test::Exception: 0
   Test::More: 0
@@ -30,4 +31,4 @@ requires:
 resources:
   bugtracker: https://github.com/amiri/Net-DNS-SPF-Expander/issues
   repository: git://github.com/amiri/Net-DNS-SPF-Expander.git
-version: 0.011
+version: 0.012
