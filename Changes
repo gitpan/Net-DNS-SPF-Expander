@@ -1,6 +1,9 @@
 Revision history for Net-DNS-SPF-Expander
 
-0.012     2013-08-21
+0.013     2013-10-04
+    - BUG FIX: Master record strings need the
+      "include:" mechanism before each component.
+      This is a breaking bug, now fixed.
 
 0.012     2013-08-21
     - Please remember that addition and subtraction

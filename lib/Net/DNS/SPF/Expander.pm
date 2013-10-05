@@ -1,6 +1,6 @@
 package Net::DNS::SPF::Expander;
 {
-  $Net::DNS::SPF::Expander::VERSION = '0.012';
+  $Net::DNS::SPF::Expander::VERSION = '0.013';
 }
 
 use Moose;
@@ -925,7 +925,7 @@ sub _get_multiple_record_strings {
 Create our "master" SPF records that include the split _spf records created
 in _get_multiple_record_strings, e.g.,
 
-    *    600    IN    TXT    "v=spf1 _spf1.test_zone.com _spf2.test_zone.com ~all"
+    *    600    IN    TXT    "v=spf1 include:_spf1.test_zone.com include:_spf2.test_zone.com ~all"
 
 =cut
 
@@ -947,7 +947,7 @@ sub _get_master_record_strings {
                     ttl     => $self->ttl,
                     txtdata => 'v=spf1 ' . (join(
                         ' ',
-                        ( map {"_spf$_.$origin"} ( 1 .. scalar(@$values) ) )
+                        ( map {"include:_spf$_.$origin"} ( 1 .. scalar(@$values) ) )
                     )) . ' ~all',
                 );
         }
