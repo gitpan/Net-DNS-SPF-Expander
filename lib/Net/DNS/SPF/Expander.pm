@@ -1,6 +1,6 @@
 package Net::DNS::SPF::Expander;
 {
-  $Net::DNS::SPF::Expander::VERSION = '0.013';
+  $Net::DNS::SPF::Expander::VERSION = '0.014';
 }
 
 use Moose;
@@ -932,7 +932,7 @@ in _get_multiple_record_strings, e.g.,
 sub _get_master_record_strings {
     my ( $self, $values, $domains ) = @_;
 
-    my $origin         = $self->origin;
+    (my $origin         = $self->origin) =~ s/\.$//g;
     my @record_strings = ();
 
     my @containing_records = ();
